@@ -4,7 +4,7 @@
 # Written by Sebastián Salazar Molina <ssalazar@orangepeople.cl>
 
 PRGNAM=mono
-VERSION=${VERSION:-2.11.4}
+VERSION=${VERSION:-3.2.5}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
@@ -83,14 +83,19 @@ find $PKG/usr/man -type f -exec gzip -9 {} \;
   mv 4.0/machine.config 4.0/machine.config.new
   mv 4.0/settings.map 4.0/settings.map.new
   mv 4.0/web.config 4.0/web.config.new
+
+  mv 4.5/DefaultWsdlHelpGenerator.aspx 4.5/DefaultWsdlHelpGenerator.aspx.new
+  mv 4.5/machine.config 4.5/machine.config.new
+  mv 4.5/settings.map 4.5/settings.map.new
+  mv 4.5/web.config 4.5/web.config.new
 )
 
 find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a \
-  AUTHORS ChangeLog COPYING.LIB LICENSE NEWS README \
+cp -ar \
+  AUTHORS ChangeLog COPYING.LIB LICENSE NEWS README docs \
   $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
