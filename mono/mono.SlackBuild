@@ -4,7 +4,7 @@
 # Written by Sebastián Salazar Molina <ssalazar@orangepeople.cl>
 
 PRGNAM=mono
-VERSION=${VERSION:-3.2.3}
+VERSION=${VERSION:-3.6.0}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
@@ -95,7 +95,7 @@ find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -ar \
-  AUTHORS ChangeLog COPYING.LIB LICENSE NEWS README docs \
+  ChangeLog COPYING.LIB LICENSE NEWS README.md docs \
   $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
