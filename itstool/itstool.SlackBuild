@@ -8,7 +8,7 @@
 
 
 PRGNAM=itstool
-VERSION=1.2.0
+VERSION=2.0.2
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
